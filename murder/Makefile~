@@ -1,0 +1,10 @@
+mytarget:
+	 touch README.txt
+	wget https://raw.githubusercontent.com/fivethirtyeight/data/master/murder_2016/murder_2015_final.csv
+	head -1 murder_2015_final.csv >> murder_header.csv
+	tail -n +2 murder_2015_final.csv >> murder_data.csv
+	grep -i "Illinois" murder_2015_final.csv >> murder_illinois.csv
+	grep -c "Maryland" murder_2015_final.csv >> murder_maryland.count
+	cut -d ',' -f 3,4 murder_2015_final.csv >> murder_illinois.csv_2014-2015.csv
+remove:
+	rm  murder_2015_final.csv
